@@ -82,6 +82,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 ##    }
 #}
 
+import dj_database_url
 DATABASES = {
 'default': dj_database_url.config(default='sqlite:///db.sqlite')
 }
