@@ -79,7 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgres',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'NAME' : 'd60r26ubg65kd5'
+        'NAME' : 'd60r26ubg65kd5',
         'USER': 'osjlxshsonhtvq',
         'PASSWORD': 'vLRxy3qGIgzpVgIYRX5AVUoP0Z',
         'HOST': 'ec2-54-163-227-173.compute-1.amazonaws.com',
