@@ -1,0 +1,58 @@
+{% extends "pi/index.html" %}
+{% load staticfiles %}
+
+
+
+{% block content %}
+<div class="row">
+   <div class="col-lg-12">
+       <h1 class="page-header">Input Features Derived from {{instance.name }}'s Facebook</h1>
+   </div>
+   <!-- /.col-lg-12 -->
+</div>
+
+<div class="row">
+   <div class="col-lg-12">
+     <div class="table-responsive">
+                                   <table class="table table-striped table-bordered table-hover">
+                                       <thead>
+                                           <tr>
+                                               <th>#</th>
+                                               <th>Feature</th>
+                                               <th>Value</th>
+                                           </tr>
+                                       </thead>
+                                       <tbody>
+                                           <tr>
+                                               <td>1</td>
+                                               <td>LIWC Analytic Score</td>
+                                               <td>{{instance.Analytic}}</td>
+                                           </tr>
+                                           <tr>
+                                               <td>2</td>
+                                               <td>LIWC Clout Score</td>
+                                               <td>{{instance.Clout}}</td>
+                                           </tr>
+                                           <tr>
+                                               <td>3</td>
+                                               <td>LIWC Authentic Score</td>
+                                               <td>{{instance.Authentic}}</td>
+                                           </tr>
+                                       </tbody>
+                                   </table>
+                               </div>
+                               <!-- /.table-responsive -->
+
+
+</div>
+
+
+<div class="row">
+   <div class="col-lg-12">
+     <a href="/pi/{{instance.pk}}/results" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Runs the input features through the model">
+         Predict {{instance.name }}'s Scores
+       </a>
+   </div>
+</div>
+
+{% endblock %}

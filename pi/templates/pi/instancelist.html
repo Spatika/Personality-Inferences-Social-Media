@@ -1,0 +1,81 @@
+{% extends "pi/index.html" %}
+{% load staticfiles %}
+
+
+{% block content %}
+
+
+<div class="row">
+   <div class="col-lg-12">
+      <h1 class="page-header">Available Instances</h1>
+
+      <div class="row">
+         <div class="col-lg-6">
+           <div class="alert alert-success alert-dismissable" style="width: auto;">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true" style="width: auto;">&times;</button>
+                    Click on these instances for their details & to see how our predictor works!
+            </div>
+         </div>
+         <!-- /.col-lg-12 -->
+      </div>
+       <p>When you click on an instance, you can see it's attributes and run it through our predictive model.</p>
+       <p>Other than the names, these instances are all derived from actual Facebook users.</p>
+       <p>These instance haven't been seen yet by the predictor.</p><br>
+   </div>
+   <!-- /.col-lg-12 -->
+</div>
+
+<div class="row">
+  <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover" align="center">
+    <thead>
+    <tr>
+      <th class="text-center"><strong>#</strong</th>
+      <th class=>Name of Facebook User</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for instance in inputs %}
+    <tr class='clickable-row' data-href="/pi/{{instance.pk}}" data-toggle="tooltip" data-placement="bottom" title="View Instance Details">
+        <td class="text-center">{{instance.pk}}</td>
+        <td>{{ instance.name }}</a></td>
+
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+</div>
+
+</div> <!--end row -->
+
+
+<!-- jQuery -->
+<script src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="{% static 'bower_components/metisMenu/dist/metisMenu.min.js' %}"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <!--
+    <script src="{% static 'bower_components/raphael/raphael-min.js' %}"></script>
+    <script src="{% static 'bower_components/morrisjs/morris.min.js' %}"></script>
+    <script src="{% static 'js/morris-data.js' %}"></script> -->
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'dist/js/sb-admin-2.js' %}"></script>
+
+    <script>
+    jQuery(document).ready(function($) {
+      $(".clickable-row").click(function() {
+          window.document.location = $(this).data("href");
+      });
+    });
+    </script>
+
+
+{% endblock %}

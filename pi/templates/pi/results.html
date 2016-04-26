@@ -1,0 +1,90 @@
+{% extends "pi/index.html" %}
+{% load staticfiles %}
+
+
+{% block content %}
+
+<div class="row">
+<div class="col-lg-12">
+<h2>Predicted Big 5 Scores for {{ output.input_features }}</h2><br>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+  <tr>
+    <th>Big 5 Trait</th>
+    <th>Actual Score</th>
+    <th>Predicted Score</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Extraversion</td>
+    <td>{{ output.e_actual_label }}</td>
+    <td id="escore"></td>
+  </tr>
+  <tr>
+    <td>Agreeableness</td>
+    <td>{{ output.a_actual_label }}</td>
+    <td id="ascore"></td>
+  </tr>
+  <tr>
+    <td>Conscientiousness</td>
+    <td> {{ output.c_actual_label }}</td>
+    <td id="cscore"></td>
+  </tr>
+
+  <tr>
+    <td>Emotional Stability</td>
+    <td> {{ output.es_actual_label }}</td>
+    <td id="esscore"></td>
+  </tr>
+
+
+    <tr>
+      <td>Openness</td>
+      <td> {{ output.o_actual_label }}</td>
+      <td id="oscore"></td>
+    </tr>
+
+
+  </tbody>
+
+  </table>
+</div>
+
+</div>
+<!-- /.col-lg-12 -->
+</div>
+
+<!--/.row -->
+
+<h2> Data Visualization</h2>
+
+<script>
+
+var num1 = {{ output.e_scored_label }}
+var num2 = {{ output.a_scored_label }}
+var num3 = {{ output.c_scored_label }}
+var num4 = {{ output.es_scored_label }}
+var num5 = {{ output.o_scored_label }}
+
+var n = num1.toFixed(2);
+document.getElementById("escore").innerHTML = n;
+
+var n = num2.toFixed(2);
+document.getElementById("ascore").innerHTML = n;
+
+var n = num3.toFixed(2);
+document.getElementById("cscore").innerHTML = n;
+
+var n = num4.toFixed(2);
+document.getElementById("esscore").innerHTML = n;
+
+var n = num5.toFixed(2);
+document.getElementById("oscore").innerHTML = n;
+
+
+</script>
+
+{% endblock %}
