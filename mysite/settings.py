@@ -82,10 +82,15 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 ##    }
 #}
 
+#import dj_database_url
+#DATABASES = {
+#'default': dj_database_url.config(default='sqlite:///db.sqlite')
+#}
+
+# Update database configuration with $DATABASE_URL.
 import dj_database_url
-DATABASES = {
-'default': dj_database_url.config(default='sqlite:///db.sqlite')
-}
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
