@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'izaeb@#q*rgp@mu&2(!q0(+2rjk-s!^(q6wl(pze0r8hmp9^h0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -77,13 +77,13 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'NAME' : 'd60r26ubg65kd5',
-        'USER': 'osjlxshsonhtvq',
-        'PASSWORD': 'vLRxy3qGIgzpVgIYRX5AVUoP0Z',
-        'HOST': 'ec2-54-163-227-173.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        #'NAME' : 'd60r26ubg65kd5',
+        #'USER': 'osjlxshsonhtvq',
+        #'PASSWORD': 'vLRxy3qGIgzpVgIYRX5AVUoP0Z',
+        #'HOST': 'ec2-54-163-227-173.compute-1.amazonaws.com',
+        #'PORT': '5432',
     }
 }
 

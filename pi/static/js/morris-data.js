@@ -109,7 +109,7 @@ $(function() {
         }],
         xkey: 'y',
         ykeys: ['a', 'b'],
-        labels: ['Series A', 'Series B'],
+        labels: ['Actual', 'Predicted'],
         hideHover: 'auto',
         resize: true
     });
