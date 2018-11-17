@@ -76,7 +76,8 @@ def results(request, instance_id):
 
         if(InputFeature.objects.get(pk=instance_id).already_evaluated == True):
                 #redirect to results view to run the ML model on the input
-                return redirect('results', instance_id)
+                # return redirect('results', instance_id)
+                return render(request, 'pi/results.html', {'output': OutputFeature.objects.get(input_features_id=instance_id)})
 
         #[(getattr(instance,field.name)) for field in instance._meta.fields]
         #serialized_object = serializers.serialize("json", [instance,])
@@ -282,8 +283,10 @@ def results(request, instance_id):
         output_object = OutputFeature.create(instance, e_actual_label, e_scored_label, a_actual_label, a_scored_label, c_actual_label, c_scored_label, es_actual_label, es_scored_label, o_actual_label, o_scored_label)
 
         #save to DB, after accumulated all 10 labels
-        output_object.save()
         instance.already_evaluated = True
+        instance.save()
+        output_object.save()
+
 
     except InputFeature.DoesNotExist:
         raise Http404("Instance does not exist")
