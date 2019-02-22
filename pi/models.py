@@ -39,7 +39,7 @@ class InputFeature(models.Model):
 
 #right now, just for Extraversion
 class OutputFeature(models.Model):
-    input_features = models.ForeignKey(InputFeature)
+    input_features = models.ForeignKey(InputFeature, on_delete=models.PROTECT)
     e_actual_label = models.FloatField(default=0.0)
     e_scored_label = models.FloatField(default=0.0)
 
